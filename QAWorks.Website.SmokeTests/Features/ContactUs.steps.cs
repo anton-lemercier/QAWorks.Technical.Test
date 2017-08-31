@@ -17,8 +17,7 @@ namespace QAWorks.Website.SmokeTests.Features
             _homePage = homePage;
             _contactUsPage = contactUsPage;
         }
-
-
+        
         [Given(@"I am on the QAWorks Site")]
         public void GivenIAmOnTheQAWorksSite()
         {
@@ -41,7 +40,6 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenTheContactRequestShouldBeSentSuccessfully()
         {
             Assert.IsTrue(_contactUsPage.ContactDetailsWereSentSuccessfully());
-            _contactUsPage.Close();
         }
 
         [When(@"I attempt to send a request for more information without a name")]
@@ -54,7 +52,6 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenIShouldBeInformedThatIMustProvideMyName()
         {
             Assert.IsTrue(_contactUsPage.MandatoryNameValidationMessageIsDisplayed());
-            _contactUsPage.Close();
         }
 
         [When(@"I attempt to send a request for more information without an email address")]
@@ -67,7 +64,6 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenIShouldBeInformedThatIMustProvideAnEmailAddress()
         {
             Assert.IsTrue(_contactUsPage.MandatoryEmailValidationMessageIsDisplayed());
-            _contactUsPage.Close();
         }
 
         [When(@"I attempt to send a request for more information without a message")]
@@ -80,7 +76,6 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenIShouldBeInformedThatIMustEnterAMessage()
         {
             Assert.IsTrue(_contactUsPage.MandatoryMessageValidationMessageIsDisplayed());
-            _contactUsPage.Close();
         }
         [When(@"I attempt to send a request for more information with an invalid email address")]
         public void WhenIAttemptToSendARequestForMoreInformationWithAnInvalidEmailAddress(Table contactDetailsTable)
@@ -92,7 +87,6 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenIShouldBeInformedThatIMustProvideAValidEmailAddress()
         {
             Assert.IsTrue(_contactUsPage.InvalidEmailAddressValidationMessageIsDisplayed());
-            _contactUsPage.Close();
         }
 
         [AfterScenario]
