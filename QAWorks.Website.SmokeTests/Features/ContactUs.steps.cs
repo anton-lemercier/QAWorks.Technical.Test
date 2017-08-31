@@ -44,7 +44,7 @@ namespace QAWorks.Website.SmokeTests.Features
             _contactUsPage.Close();
         }
 
-       [When(@"I attempt to send a request for more information without a name")]
+        [When(@"I attempt to send a request for more information without a name")]
         public void WhenIAttemptToSendARequestForMoreInformationWithoutAName(Table contactDetailsTable)
         {
             _contactUsPage.SendContactDetails(contactDetailsTable.CreateInstance<ContactDetails>());
@@ -92,6 +92,12 @@ namespace QAWorks.Website.SmokeTests.Features
         public void ThenIShouldBeInformedThatIMustProvideAValidEmailAddress()
         {
             Assert.IsTrue(_contactUsPage.InvalidEmailAddressValidationMessageIsDisplayed());
+            _contactUsPage.Close();
+        }
+
+        [AfterScenario]
+        public void Close()
+        {
             _contactUsPage.Close();
         }
     }
