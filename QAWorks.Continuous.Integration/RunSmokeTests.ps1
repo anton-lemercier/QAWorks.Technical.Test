@@ -10,6 +10,9 @@ if(![System.IO.File]::Exists($ChromeDriverPath)){
 	Copy-Item -Path $RootPath\packages\Selenium.WebDriver.ChromeDriver.2.32.0\driver\win32\chromedriver.exe -Destination $RootPath\QAWorks.Website.SmokeTests\bin\Debug
 }
 
+# Create the test results folder
+New-Item TestResults -type directory -force
+
 $result = "TestResults\results.xml;format=nunit2"
 $out = "TestResults\output.txt"
 $Nunit_Console = "$RootPath\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe"

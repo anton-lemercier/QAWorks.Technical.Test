@@ -2,9 +2,9 @@
 
 $RootPath = (get-item $PSScriptRoot ).parent.FullName
 $Timestamp = Get-Date -format yyyy-M-d_HH-mm
-$Test_Results= "TestResults/results.xml"
-$Test_Output= "TestResults/output.txt"
-$SpecflowReport = "TestResults/TestReport-$Timestamp.html"
+$Test_Results= "TestResults\results.xml"
+$Test_Output= "TestResults\output.txt"
+$SpecflowReport = "TestResults\TestReport-$Timestamp.html"
 $Test_Project = "$RootPath\QAWorks.Website.SmokeTests\QAWorks.Website.SmokeTests.csproj"
 $Specflow_exe = "$RootPath\packages\SpecFlow.2.2.0\tools\specflow.exe"
 
