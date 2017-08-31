@@ -3,6 +3,13 @@
 # Filters on @ContactUs test scenarios 
 
 $RootPath = (get-item $PSScriptRoot ).parent.FullName
+$ChromeDriverPath = "$RootPath\QAWorks.Website.SmokeTests\bin\Debug\chromedriver.exe"
+
+if(![System.IO.File]::Exists($ChromeDriverPath)){
+    # copy the chrome driver to the test bin folder
+	Copy-Item -Path $RootPath\packages\Selenium.WebDriver.ChromeDriver.2.32.0\driver\win32\chromedriver.exe -Destination $RootPath\QAWorks.Website.SmokeTests\bin\Debug
+}
+
 $result = "TestResults\results.xml;format=nunit2"
 $out = "TestResults\output.txt"
 $Nunit_Console = "$RootPath\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe"
